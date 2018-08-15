@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>My Articles</h1>
+  <% @articles.each do |article| %>
+  <ul>
+    <li> <%= article[:completed] ? "[x]" : "[ ]"  %>
+      <%= link_to article[:title], article_path(article) %>
+      <%= link_to "Delete", article_path(article),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+    </li>
+  </ul>
+  <% end %>
+
+  <hr/>
+
+  <%= link_to "+ Add a new article", articles_new_path %>
+</div>
